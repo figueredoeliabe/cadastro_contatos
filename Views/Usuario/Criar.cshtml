@@ -1,0 +1,57 @@
+@using cadastro_contatos.Enums
+@model UsuarioModel
+@{
+    ViewData["Title"] = "Adicionar Usuario";
+}
+
+<head>
+  <link rel="stylesheet" href="~/assets/css/ContatoStyle.css">
+</head>
+
+<div class="text-center">
+    <h1>Adicionar Usuario</h1>
+</div>
+
+<form asp-controller="Usuario" asp-action="Criar" class="formulario">
+    
+  <div class="formulario">
+  <input type="hidden" asp-for="Id" />
+  <div class="input-group1">
+    <input type="text" asp-for="Nome" id="form-input" required class="input1">
+    <label for="nome" class="input-label1">Nome</label>
+    @Html.ValidationMessageFor(x => x.Nome)
+  </div>
+
+  <div class="input-group1">
+    <input type="text" asp-for="Login" id="form-input" required class="input1">
+    <label for="login" class="input-label1">Login</label>
+    @Html.ValidationMessageFor(x => x.Login)
+  </div>
+
+  <div class="input-group1">
+    <input type="text" asp-for="Email" id="form-input" required class="input1">
+    <label for="email" class="input-label1">Email</label>
+    @Html.ValidationMessageFor(x => x.Email)
+  </div>
+
+  <div class="form-group">
+  <label for="perfil" class="form-label">Perfil</label>
+    <select asp-for="Perfil" class="form-control">
+      <option value="">Selecione</option>
+      <option value="@PerfilEnum.Admin" >Administrador</option>
+      <option value="@PerfilEnum.Padrao" >Padrão</option>
+    </select>
+    @Html.ValidationMessageFor(x => x.Perfil)
+  </div>
+
+  <div class="input-group1">
+    <input type="password" asp-for="Senha" id="form-input" required class="input1">
+    <label for="senha" class="input-label1">Senha</label>
+    @Html.ValidationMessageFor(x => x.Senha)
+  </div>
+  
+  <div class="botoes">
+    <button type="submit" class="btn btn-success botoesform">Salvar</button>
+    <a class="btn btn-secondary botoesform" asp-controller="Usuario" asp-action="Index" role="button">Voltar</a>
+  </div>
+</form>

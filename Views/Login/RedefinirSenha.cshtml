@@ -1,0 +1,44 @@
+@model RedefinirSenhaModel
+@{
+    Layout = "_LayoutNoLogin";
+    ViewData["Title"] = "Redefinir a Senha";
+}
+
+ @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+@if (TempData["MensagemErro"] != null)
+  {
+    <div class="alert alert-danger" role="alert">
+       @TempData["MensagemErro"]
+    </div>
+  }
+
+<h1 class="h1Login">Redfinição de Senha</h1>
+
+<form asp-controller="Login" asp-action="EnvioLinkRedefinicao" method="post" id="loginForm">
+
+
+  <div class="telaLogin">
+    <div class="input-group">
+      <input type="text" asp-for="Login" id="name" required class="input">
+      <label for="name" class="input-label">Login</label>
+      @Html.ValidationMessageFor(x => x.Login)
+    </div>
+
+    <div class="input-group1">
+    <input type="email" asp-for="Email" id="email" required class="input1">
+    <label for="email" class="input-label1">Email</label>
+    @Html.ValidationMessageFor(x => x.Email)
+    </div>
+  </div>
+  
+  <div class="botoes">
+    <div id="redefinirSenha"><button type="submit" class="btn btn-primary botoesform">Redefinir Senha</button></div>
+     <div id="redefinirVoltar"><a role="button" class="btn btn-secondary botoesform" asp-controller="Login" asp-action="Index">Voltar</a></div>
+  </div>
+</form>

@@ -1,0 +1,46 @@
+html{
+    font-family: 'Helvetica' 'sans-serif';
+}
+
+
+h1{
+    color: #0038a8;
+    font-family: 'Fredericka the Great', cursive;
+}
+
+h3{
+    color: #0038a8;
+}
+
+th{
+    color: #0038a8;
+}
+
+tr{
+    color: #0038a8;
+}
+
+td{
+    color: #0038a8;
+}
+
+p{
+    color: #0038a8
+}
+
+.errorMessage{
+    color: red;
+}
+
+label{
+    color: #0038a8;
+}
+
+tr th{
+    margin-right: 15px;
+    padding-right: 15px;
+}
+
+table.dataTable thead th, table.dataTable thead td, table.dataTable tfoot th, table.dataTable tfoot td {
+    text-align: center;
+}

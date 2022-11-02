@@ -1,0 +1,18 @@
+@model UsuarioModel
+@{
+    ViewData["Title"] = "Confirmação de Exclusão do usuário";
+}
+
+<head>
+  <link rel="stylesheet" href="~/assets/css/ContatoStyle.css">
+</head>
+
+<div class="text-center">
+    <h3>Deseja Prosseguir e Excluir o Usuário (@Model.Nome)?</h3>
+</div>
+
+<div>
+    
+    <a class="btn btn-danger btn-block" role="button" asp-controller="Usuario" asp-action="Apagar" asp-route-id="@Model.Id">Sim</a>
+    <a class="btn btn-secondary btn-block" role="button" asp-controller="Usuario" asp-action="Index">Não</a>
+</div>

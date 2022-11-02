@@ -1,0 +1,46 @@
+@model LoginModel
+@{
+    Layout = "_LayoutNoLogin";
+    ViewData["Title"] = "Login";
+}
+
+@if (TempData["MensagemErro"] != null)
+  {
+    <div class="alert alert-danger" role="alert">
+       @TempData["MensagemErro"]
+    </div>
+  }
+
+   @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+<h1 class="h1Login">Meus Contatos</h1>
+
+<form asp-controller="Login" asp-action="Entrar" method="post" class="furmulario">
+
+
+  <div class="telaLogin">
+    <div class="input-group">
+      <input type="text" asp-for="Login" id="form-input" required class="input">
+      <label for="name" class="input-label">Login</label>
+      @Html.ValidationMessageFor(x => x.Login)
+    </div>
+
+    <div class="input-group1">
+    <input type="password" asp-for="Senha" id="form-input" required class="input1">
+    <label for="name" class="input-label1">Senha</label>
+    @Html.ValidationMessageFor(x => x.Senha)
+    </div>
+  </div>
+  
+  <div class="loginBotoes">
+    <p class="mb-4 text-sm-center mx-auto">
+      <a asp-action="RedefinirSenha" asp-controller="Login" class="text-primary text-gradient font-weight-bold">Esqueci minha senha.</a>
+    </p>
+    <div id="botaoLogin"><button type="submit" class="btn btn-primary" id="loginButton">Entrar</button></div>
+</div>
+</form>
